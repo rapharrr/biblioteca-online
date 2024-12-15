@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/registro">Registro</a></li>
+                <li><a href="/meu-perfil">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Meu Perfil</h1>
+        <div>
+            <p><strong>Nome:</strong> <span th:text="${usuario.nome}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
+            <p><strong>Senha:</strong> <span>********</span> (não exibir a senha real)</p>
+        </div>
+    </main>
+</body>
+</html>

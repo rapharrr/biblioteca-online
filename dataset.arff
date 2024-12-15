@@ -1,0 +1,37 @@
+@relation livros
+
+@attribute id NUMERIC
+@attribute genero {Adventure,Horror,Drama,Thriller,Fantasy,Romance,Mystery,Classic,Children,History,Fiction,Science Fiction}
+@attribute usuario_favorito {sim, nao}
+
+@data
+620, Fantasy, ?
+621, Fiction, ?
+622, Fantasy, ?
+623, Fantasy, ?
+624, Fiction, ?
+625, Classic, ?
+626, Children, ?
+627, Fiction, ?
+628, Fiction, ?
+629, Fantasy, ?
+630, Children, ?
+631, Fantasy, ?
+632, Fiction, ?
+633, Children, ?
+634, Fiction, ?
+635, Fantasy, ?
+636, Fantasy, ?
+637, Fantasy, ?
+638, Fiction, ?
+639, Fiction, ?
+640, Fantasy, ?
+641, Fantasy, ?
+642, Fantasy, ?
+643, Fiction, ?
+644, Fantasy, ?
+645, Fantasy, ?
+646, Fiction, ?
+647, Children, ?
+648, Fantasy, ?
+649, Adventure, ?

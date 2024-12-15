@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Gêneros</title>
+    <link rel="stylesheet" href="/css/selecionar-generos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha 3 Gêneros Favoritos</h1>
+        <form action="/usuario/salvar-generos" method="POST">
+            <div>
+                <input type="checkbox" id="genero1" name="generos" value="ficcao">
+                <label for="genero1">Ficção</label>
+            </div>
+            <div>
+                <input type="checkbox" id="genero2" name="generos" value="drama">
+                <label for="genero2">Drama</label>
+            </div>
+            <div>
+                <input type="checkbox" id="genero3" name="generos" value="aventura">
+                <label for="genero3">Aventura</label>
+            </div>
+            <div>
+                <input type="checkbox" id="genero4" name="generos" value="romance">
+                <label for="genero4">Romance</label>
+            </div>
+            <button type="submit">Salvar Gêneros</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const maxSelection = 3;
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    const selectedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                    if (selectedCheckboxes.length > maxSelection) {
+                        this.checked = false;
+                        alert('Você só pode escolher no máximo 3 gêneros.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

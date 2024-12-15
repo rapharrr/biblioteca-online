@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venda de Livros</title>
+  <link rel="stylesheet" href="css/vendas-livro.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-esquerda">
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="adicionar-livro.html">Adicionar Livro</a></li>
+          <li class="dropdown">
+            <a href="#">Categorias</a>
+            <div class="dropdown-content" id="categorias-dropdown">
+              <!-- Categorias dinâmicas serão inseridas aqui -->
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-direita">
+        <ul>
+          <div id="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar livros...">
+            <span class="search-icon">&#128269;</span> <!-- Ícone de lupa -->
+          </div>
+
+          <!-- Links para login/logout dependendo do estado -->
+          <li th:if="${usuarioLogado}"><a href="/logout">Logout</a></li>
+          <li th:unless="${usuarioLogado}"><a href="login">Login</a></li>
+          <li th:unless="${usuarioLogado}"><a href="registro">Registro de Usuário</a></li>
+          <li th:if="${usuarioLogado}"><a href="/meu-perfil">Meu Perfil</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h1>books TCC</h1>
+  </header>
+
+  <main>
+    <section id="livros-venda">
+      <div class="livros-container" id="lista-livros-venda"></div>
+    </section>
+
+    <section id="recomendacoes">
+      <h2>Recomendações para Você</h2>
+      <div class="livros-container" id="lista-recomendacoes"></div>
+    </section>
+
+
+    <section id="generos-preferidos" th:if="${usuarioLogado}">
+      <h2>Seus Gêneros Favoritos</h2>
+      <ul>
+        <li th:each="genero : ${generosPreferidos}" th:text="${genero}"></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

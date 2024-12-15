@@ -1,0 +1,99 @@
+/* Estilos para o layout principal */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #6200ea;
+  }
+  
+  /* Estilos para o formulário e botões de gêneros */
+  #generos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .genero-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .genero-btn:hover {
+    background-color: #bb86fc;
+    color: #fff;
+  }
+  
+  .genero-btn.selecionado {
+    background-color: #6200ea;
+    color: #fff;
+  }
+  
+  /* Estilos para o botão de submit */
+  #submit-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #submit-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Livro</title>
+  <link rel="stylesheet" href="css/detalhes-livro.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">BibliotecaOnline</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="/">Início</a></li>
+          <li><a href="/adicionar-livro">Adicionar Livro</a></li>
+          <li><a href="/perfil">Meu Perfil</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="detalhes-livro" class="content">
+    <!-- Detalhes do livro aparecerão aqui -->
+  </main>
+  <footer class="footer">
+    <p>&copy; 2024 BibliotecaOnline. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function carregarDetalhesDoLivro() {
+      const params = new URLSearchParams(window.location.search);
+      const livroId = params.get('id');
+
+      if (!livroId) {
+        console.error('ID do livro não fornecido.');
+        document.getElementById('detalhes-livro').innerHTML = '<p>ID do livro não fornecido.</p>';
+        return;
+      }
+
+      fetch(`/api/livros/${livroId}`)
+        .then(response => response.json())
+        .then(livro => {
+          if (!livro) {
+            console.error('Livro não encontrado.');
+            document.getElementById('detalhes-livro').innerHTML = '<p>Livro não encontrado.</p>';
+            return;
+          }
+
+          const avaliacaoMedia = livro.avaliacaoMedia || 0;
+          const preco = livro.preco || 0;
+
+          const detalhesDiv = document.getElementById('detalhes-livro');
+          detalhesDiv.innerHTML = `
+            <div class="card">
+              <img src="${livro.capaUrl || 'caminho/imagem-padrao.jpg'}" alt="Capa de ${livro.titulo}" class="book-cover">
+              <h2>${livro.titulo}</h2>
+              <p><strong>Autor:</strong> ${livro.autor}</p>
+              <p><strong>Ano de Publicação:</strong> ${livro.anoPublicacao}</p>
+              <p><strong>Preço:</strong> R$ ${preco.toFixed(2)}</p>
+              <p><strong>Avaliação Média:</strong> ${avaliacaoMedia.toFixed(1)} ★</p>
+              <p><strong>Sinopse:</strong> ${livro.sinopse}</p>
+            </div>
+          `;
+        })
+        .catch(error => {
+          console.error('Erro ao carregar detalhes do livro:', error);
+          document.getElementById('detalhes-livro').innerHTML = '<p>Erro ao carregar os detalhes do livro.</p>';
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', carregarDetalhesDoLivro);
+  </script>
+</body>
+</html>

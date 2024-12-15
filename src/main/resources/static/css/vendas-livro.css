@@ -1,0 +1,284 @@
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* ------------------- Cabeçalho e Navegação ------------------- */
+header {
+  background-color: #4a90e2;
+  padding: 15px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-esquerda ul,
+.nav-direita ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-esquerda ul li,
+.nav-direita ul li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffdd57;
+}
+
+/* ------------------- Campo de Busca ------------------- */
+#search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#searchInput {
+  padding: 8px 30px 8px 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+  width: 200px;
+  transition: width 0.3s;
+}
+
+#searchInput:focus {
+  width: 250px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #666;
+  cursor: pointer;
+}
+
+/* ------------------- Dropdown ------------------- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* ------------------- Categorias ------------------- */
+.categoria {
+  margin-bottom: 30px;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+.categoria h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* ------------------- Livros ------------------- */
+.livros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.card-body {
+  margin-top: 10px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-author,
+.card-price,
+.card-rating {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ------------------- Seções ------------------- */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+#livros-venda h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Grid de Livros */
+.livros-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.card-author {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.card-price {
+  color: #4a90e2;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-rating {
+  color: #ffdd57;
+  font-size: 0.9rem;
+}
+
+/* ------------------- Notificações ------------------- */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------- Responsividade ------------------- */
+@media (max-width: 768px) {
+  #searchInput {
+    width: 150px;
+  }
+
+  .nav-esquerda ul,
+  .nav-direita ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-esquerda ul li,
+  .nav-direita ul li {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #livros-venda h2 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
